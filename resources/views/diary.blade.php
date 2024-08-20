@@ -4,14 +4,18 @@
     
     <div class="slider-section slider-active overflow-hidden">
         <div class="single-slider-02 animation-style-01" style="background-image: url(/assets/images/bg/diarybackground.jpg);">
-            <div class="container">
-                <div class="rolling-text slider-content-04__title text-white">
-                    <span>O</span><span>u</span><span>r</span> <span>M</span><span>i</span><span>l</span><span>k</span>
-                </div><br>
-                <div class="rolling-text slider-content-04__title text-white">
-                    <span>D</span><span>e</span><span>l</span><span>i</span><span>c</span><span>i</span><span>o</span><span>u</span><span>s</span>
+            <div class="container row position">
+                <div class="col-7">
+                    <div class="rolling-text slider-content-04__title text-white  d-flex justify-content-center">
+                        <span>O</span><span>u</span><span>r</span> <span>M</span><span>i</span><span>l</span><span>k</span>
+                    </div>
+                    <div class="rolling-text slider-content-04__title text-white d-flex justify-content-center">
+                        <span>D</span><span>e</span><span>l</span><span>i</span><span>c</span><span>i</span><span>o</span><span>u</span><span>s</span>
+                    </div>
                 </div>
-                <img class="call-to-action-diary__images_1" src="/assets/images/bg/milk3.png" alt="Features Card">
+                <div class="col-5 d-flex justify-content-end">
+                    <img class="call-to-action-diary__images_1" src="/assets/images/bg/milk3.png" alt="Features Card">
+                </div>
             </div>
         </div>
     </div>
@@ -32,7 +36,6 @@
                                     @foreach ($chunk as $product)
                                         @php
                                             $productName = $product->name;
-                                            $productPrice = $product->price;
                                             $imageUrl = '/assets/images/diary' .'/' . $productName . '.jpg'; 
                                         @endphp
                                     
@@ -43,19 +46,12 @@
                                                 <a href="/product/{{$productName}}">
                                                     <img src={{$imageUrl}}  style="width:70%; height:auto; aspect-ratio:1/1;" alt="Product">
                                                 </a>
-                                                <ul class="product-item__meta meta-middle">
-                                                    <li class="product-item__meta-action"><a class="labtn-icon-quickview" href="#/" data-bs-tooltip="tooltip" data-bs-placement="top" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleProductModal"></a></li>
-                                                    <li class="product-item__meta-action"><a class="labtn-icon-cart" href="#/" data-bs-tooltip="tooltip" data-bs-placement="top" title="Select options" data-bs-toggle="modal" data-bs-target="#modalCart"></a></li>
-                                                    <li class="product-item__meta-action"><a class="labtn-icon-wishlist" href="#/" data-bs-tooltip="tooltip" data-bs-placement="top" title="Add to wishlist" data-bs-toggle="modal" data-bs-target="#modalWishlist"></a></li>
-                                                    <li class="product-item__meta-action"><a class="labtn-icon-compare" href="#/" data-bs-tooltip="tooltip" data-bs-placement="top" title="Add to compare" data-bs-toggle="modal" data-bs-target="#modalCompare"></a></li>
-                                                </ul>
                                             </div>
                                             <div class="product-item__content px-0 pt-9 pb-4 px-0">
                                                 <h5 class="product-item__title fs-5"><a href="/product/{{$productName}}">{{$productName}}</a></h5>
                                                 <div class="product-item__rating">
                                                     <div class="product-item__star-rating" style="width: 100%;"></div>
                                                 </div>
-                                                <span class="product-item__price fs-4">${{$productPrice}}</span>
                                             </div>
                                         </div>
                                     <!-- Product Item End -->

@@ -291,7 +291,7 @@ textarea.form-field:focus {
 .custom-container-three {
   padding: 0 60px 0 60px;
 }
-@media only screen and (min-width: 1200px) and (max-width: 1599px), only screen and (min-width: 992px) and (max-width: 1199px) {
+@media only screen and (min-width: 1200px) and (max-width: 1599px), only screen and (max-width: 992px) and (max-width: 1199px) {
   .custom-container-three {
     padding: 0 40px 0 40px;
   }
@@ -357,26 +357,26 @@ textarea.form-field:focus {
 }
 
 .section-padding-02 {
-  padding-top: 130px;
+  padding-top: 90px;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {
-  .section-padding-02 {
-    padding-top: 110px;
-  }
-}
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .section-padding-02 {
-    padding-top: 100px;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 991px) {
   .section-padding-02 {
     padding-top: 80px;
   }
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .section-padding-02 {
+    padding-top: 70px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
   .section-padding-02 {
     padding-top: 60px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .section-padding-02 {
+    padding-top: 50px;
   }
 }
 
@@ -465,11 +465,17 @@ textarea.form-field:focus {
     padding-bottom: 60px;
   }
 }
-.padding-x-60 {
-  padding-left: 60px;
+.padding-x {
+  padding-left: 120px;
   padding-right: 120px;
 }
 
+@media only screen and (max-width: 991px) {
+  .padding-x {
+    padding-left: 30px;
+  padding-right: 30px;
+  }
+}
 .section-padding-05 {
   padding-top: 150px;
   padding-bottom: 150px;
@@ -2147,8 +2153,7 @@ textarea.form-control {
   list-style-type: none;
   margin: 0;
   position: absolute;
-  top: 100%;
-  /* left: 0; */
+  top: 64%;
   background-color: #fff;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   z-index: 99;
@@ -2816,13 +2821,6 @@ textarea.form-control {
   background-color: #0a3083;
 }
 
-.search-form {
-  position: relative;
-  border-width: 0 0 1px 0;
-  border-style: solid;
-  border-color: #fff70;
-  width: 280px;
-}
 @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
   .search-form {
     width: 100%;
@@ -2849,6 +2847,7 @@ textarea.form-control {
 /*----------------------------------------*/
 .offcanvas-menu {
   width: 320px;
+  height:40%;
   z-index: 999;
 }
 .offcanvas-menu .offcanvas-header .btn-close {
@@ -3304,7 +3303,7 @@ textarea.form-control {
 }
 
 .single-slider-02 {
-  height: 910px;
+  height: 960px;
   display: flex;
   align-items: center;
   background-position: center center;
@@ -3316,22 +3315,22 @@ textarea.form-control {
 }
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {
   .single-slider-02 {
-    height: 800px;
+    height: 750px;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .single-slider-02 {
-    height: 660px;
+    height: 700px;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
   .single-slider-02 {
-    height: 540px;
+    height: 440px;
   }
 }
-.single-slider-02::before {
-  position: absolute;
-  content: "";
+/* .single-slider-02::before { */
+  /* position: absolute; */
+  /* content: "";
   top: 0;
   left: 0;
   width: 100%;
@@ -3339,7 +3338,7 @@ textarea.form-control {
   background-color: #212121;
   opacity: 0.7;
   z-index: -1;
-}
+} */
 
 .single-slider-03 {
   height: 1090px;
@@ -7010,29 +7009,44 @@ textarea.form-control {
     transform: translateY(-100vh); /* Start at the top */
   }
   50% {
-    transform: translateY(-30vh);
+    transform: translateY(10vh);
   }
   70% {
-    transform: translateY(-45vh);
+    transform: translateY(-5vh);
   }
   85% {
-    transform: translateY(-30vh);
+    transform: translateY(10vh);
   }
   95% {
-    transform: translateY(-37vh);
+    transform: translateY(3vh);
   }
   100% {
-    transform: translateY(-30vh); /* Move to the bottom */
+    transform: translateY(10vh); /* Move to the bottom */
   }
 }
 
 .call-to-action-diary__images_1 {
-  position: absolute;
-  left: 1000px;
+  /* position: absolute; */
+  top: 200px;
   width: 600px;
   animation: fallUpToDown 2.2s linear forwards;
 }
 
+@media only screen and (min-width: 992px) and (max-width: 1570px) {
+  .call-to-action-diary__images_1 {
+    width: 400px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .call-to-action-diary__images_1 {
+    width: 300px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .call-to-action-diary__images_1 {
+    width: 200px;
+  }
+}
 
 @keyframes rollIn {
   0% {
@@ -9007,9 +9021,9 @@ textarea.form-control {
   position: relative;
   z-index: 1;
 }
-@media only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
+@media only screen and (min-width: 768px) and (max-width: 1200px), only screen and (max-width: 767px) {
   .features-card-wrapper {
-    margin-top: -180px;
+    margin-top: -100px;
     padding: 20px;
   }
 }
@@ -10817,7 +10831,7 @@ textarea.form-control {
   position: relative;
   width: 100%;
   overflow: hidden;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 .single-blog-image img {
   position: absolute;
@@ -10825,6 +10839,9 @@ textarea.form-control {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.pt-10 {
+  padding-top: 100px;
 }
 .single-blog-title {
   font-family: "Montaga", serif;
@@ -10847,8 +10864,8 @@ textarea.form-control {
 .single-blog-bottom {
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: 2px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
   padding: 30px 0;
   margin-top: 30px;
 }
@@ -14586,7 +14603,6 @@ textarea.form-control {
   }
 }
 .product-desc-img {
-  max-width: 46%;
   width: 100%;
 }
 @media only screen and (max-width: 767px) {
@@ -14596,9 +14612,9 @@ textarea.form-control {
   }
 }
 .product-desc-content {
-  max-width: 38%;
   width: 100%;
   right: 5%;
+
   position: relative;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -14662,8 +14678,29 @@ textarea.form-control {
   margin-left: auto;
   width: 100%;
 }
-.review_thumb {
-  width: 100px;
+.border-red {
+  padding: 2px;
+  border: 2px solid #d00018 !important;
+}
+.border-blue {
+  border: 2px solid #0a3083 !important;
+}
+.site-text-red {
+  color: #d00018;
+}
+.site-text-blue {
+  color: #0a3083;
+}
+.review_thumb_1 {
+  padding: 2px;
+  border: 2px solid #d00018;
+}
+.review_thumb_2 {
+  width: 80px;
+  height: 80px;
+  background-color: #cbc7c7;
+  font-size: 2rem;
+  border: 2px solid #0a3083;
 }
 .review-title-date {
   line-height: 1;
@@ -15911,11 +15948,17 @@ textarea.form-control {
 
 .header-self-top:not(.sticky) {
     background-image: url('/assets/images/header/flag.png')!important;
-    background-size: auto 100%!important;
+    background-size: auto 100% !important;
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)!important; */
-    height: 25vh!important;
+    height: 25vh !important;
     padding: 8.5vh 0 9vh 0!important;
     border: none;
+}
+@media only screen and (max-width: 991px){
+  .header-self-top:not(.sticky) {
+    height: 17vh !important;
+    padding: 5.5vh 0 9vh 0 !important;
+  }
 }
 
 .border-three-color {
@@ -15929,6 +15972,11 @@ textarea.form-control {
 
 .white-logo {
   height: 7.5vh;
+}
+@media only screen and (max-width: 991px){
+  .white-logo {
+    height: 5.5vh;
+  }
 }
 
 .header-logo {
@@ -15960,12 +16008,12 @@ textarea.form-control {
 }
 
 .sticky {
-  padding: 42px!important;
+  padding: 24px!important;
 }
 
 @media only screen and (max-width: 720px){
   .header-sticky-03.sticky {
-    background-color: #d00018!important;
+    background-color: #d00018 !important;
   }
 }
 
@@ -15975,6 +16023,7 @@ textarea.form-control {
     padding: 10px;
     border: 2px solid #ffffff;
 }
+
 .header-meta__action li button i {
   font-weight: 700;
   font-size: 3vh;
@@ -16006,7 +16055,7 @@ div.swiper-slider-img-div-1 {
 }
 div.sticky-mark {
   position: fixed;
-  left: 20px;
+  right: 60px;
   bottom: 30px;
   z-index: 99;
   width: 100px;
@@ -16233,4 +16282,80 @@ div.product-additional-info {
     width: 365px; 
     height: 303px;
   }
+}
+
+.position {
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1200px){
+  .position {
+    align-items: end;
+  } 
+}
+
+.position-top {
+  padding-top: 0px;
+}
+
+@media only screen and (max-width: 1200px){
+  .position-top {
+    padding-top: 150px;
+  } 
+}
+
+.position-top1 {
+  padding-top: 0px;
+}
+
+@media only screen and (max-width: 1200px){
+  .position-top1 {
+    padding-top: 103px;
+  } 
+}
+.product-meta-custom {
+  padding-top: 50px;
+}
+
+.salespoint-image{
+  width: 500px;
+  height: 500px;
+  border-radius: 20%;
+}
+
+@media only screen and (max-width: 1600px){
+  .salespoint-image {
+    width: 400px;
+    height: 400px;
+  } 
+}
+@media only screen and (max-width: 1200px){
+  .salespoint-image {
+    width: 300px;
+    height: 300px;
+  } 
+}
+
+@media only screen and (max-width: 995px){
+  .salespoint-image {
+    width: 250px;
+    height: 250px;
+  } 
+}
+
+.padding-y{
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.netherlands-map{
+  width: 100%;
+  height: 100%;
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #d00018, #0a3083); /* Define the gradient colors */
+  -webkit-background-clip: text; /* Clip the background to the text */
+  -webkit-text-fill-color: transparent; /* Make the text color transparent */
 }

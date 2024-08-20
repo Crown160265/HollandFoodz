@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Seeders\ProductSeeder;
+use Database\Seeders\ProductSeeder;
+use Database\Seeders\ChiefSeeder;
+use Database\Seeders\SalesPointSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,5 +17,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(ProductSeeder::class);
+        $this->call(ChiefSeeder::class);
+        $this->call(SalesPointSeeder::class);
     }
 }

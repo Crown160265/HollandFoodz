@@ -2,14 +2,12 @@
 @extends('layouts.main')
 
 @section('main')
-<div class="breadcrumb background-red" style="height: 25vh;">
-    </div>
-   
+
     <div class="slider-section slider-active overflow-hidden">
         <div class="swiper">
             <div class="swiper-wrapper">
                 <!-- Single Slider Start -->
-                <div class="swiper-slide single-slider-04 animation-style-04" style="height:75vh; background-image: url('/assets/images/bg/redbg6.jpg');">
+                <div class="swiper-slide single-slider-04 animation-style-04" style="background-image: url('/assets/images/bg/redbg6.jpg');">
                     @php
                         
                         for($i = 1; $i <=20; $i++) {
@@ -22,7 +20,7 @@
                         }
                         
                     @endphp
-                    <div class="container">
+                    <div class="container position-top">
                         <!-- Slider Content Start -->
                         <div class="slider-content-04">
                             <h1 class="slider-content-04__title text-white">Contact Us</h1>
@@ -49,15 +47,15 @@
                         <ul class="contact-section2_list">
                             <li>
                                 <span class="contact-section2_list__icon"><i class="lastudioicon lastudioicon-pin-3-2"></i></span>
-                                <span class="contact-section2_list__text text-black">6391 Elgin St. Celina, Delaware 10299 <br> 2464 Royal Ln. Mesa, New Jersey 45463</span>
+                                <span class="contact-section2_list__text text-black">Karolusstraat <br> 4903 RJ Oosterhout</span>
                             </li>
                             <li>
                                 <span class="contact-section2_list__icon"><i class="lastudioicon lastudioicon-phone-2"></i></span>
-                                <span class="contact-section2_list__text text-black">+880-123-456789 <br> +880-123-456789</span>
+                                <span class="contact-section2_list__text text-black">+31(0)162 744 744</span>
                             </li>
                             <li>
                                 <span class="contact-section2_list__icon"><i class="lastudioicon lastudioicon-mail"></i></span>
-                                <span class="contact-section2_list__text text-black">info@admin.com <br> test.mail.com</span>
+                                <span class="contact-section2_list__text text-black">info@hollandfoodz.com</span>
                             </li>
                         </ul>
                     </div>
@@ -68,41 +66,56 @@
                         <div class="section-title-04 text-center">
                             <h5 class="slider-content-04__title_contact text-red">Say Something</h5>
                         </div>
-                        <form class="contact-section2_form" id="contact-form" action="assets/php/mail.php" method="post">
+                        <form class="comments-area_form"  method="POST" action="{{ route('users.store') }}">
+                            @csrf
                             <div class="row">
                                 <div class="col-sm-6 col-6 form-p">
-                                    <div class="form-group">
-                                        <label>First Name*</label>
-                                        <input class="form-field" type="text" name="name">
-                                    </div>
+                                    <label>Voomaam <span class="required">*</span></label>
+                                    <input class="comments-area_input" type="text" required="required" name="firstname">
                                 </div>
                                 <div class="col-sm-6 col-6 form-p">
-                                    <div class="form-group">
-                                        <label>Last Name*</label>
-                                        <input class="form-field" type="text" name="lastname">
-                                    </div>
+                                    <label>Achtemaam <span class="required">*</span></label>
+                                    <input class="comments-area_input" type="text" name="lastname" required="required">
+                                </div>
+                                <div class="col-sm-6 col-6 form-p">
+                                    <label>Bedrijf <span class="required">*</span></label>
+                                    <input class="comments-area_input" type="text" name="company" required="required">
+                                </div>
+                                <div class="col-sm-6 col-6 form-p">
+                                    <label>Telefoon <span class="required">*</span></label>
+                                    <input class="comments-area_input" type="text" name="phone" required="required">
+                                </div>
+                                <div class="col-sm-6 col-6 form-p">
+                                    <label>E-mail <span class="required">*</span></label>
+                                    <input class="comments-area_input" type="text" name="email" required="required">
+                                </div>
+                                <div class="col-sm-6 col-6 form-p">
+                                    <label>Onderwerp <span class="required">*</span></label>
+                                    <input class="comments-area_input" type="text" name="subject" required="required">
                                 </div>
                                 <div class="col-md-12 form-p">
-                                    <div class="form-group">
-                                        <label>Email Address*</label>
-                                        <input class="form-field" type="email" name="email">
-                                    </div>
-                                </div>
-                                <div class="col-md-12 form-p">
-                                    <div class="form-group">
-                                        <label>Message*</label>
-                                        <textarea class="form-control text-area" name="message"></textarea>
-                                    </div>
+                                    <label>Bericht</label>
+                                    <textarea class="comments-area_textarea" required="required" name="message"></textarea>
                                 </div>
                                 <div class="col-md-12 form-p">
                                     <div class="form-group mb-0 d-flex justify-content-center">
-                                        <button class="btn btn-secondary btn-hover-primary" type="submit" value="Send Massage">Send Message</button>
+                                        <button class="btn btn-secondary btn-hover-primary" type="submit">Send Message</button>
                                     </div>
                                 </div>
                             </div>
                         </form>
+                        
+                        @if(session('success'))
+                            <script>
+                                alert("{{ session('success') }}");
+                            </script>
+                        @elseif(session('error'))
+                            <script>
+                                alert("{{ session('error') }}");
+                            </script>
+                        @endif
                         <!-- Message Notification -->
-                        <div class="form-messege"></div>
+                        <!-- <div class="form-messege"></div> -->
                     </div>
                 </div>
             </div>
@@ -114,7 +127,7 @@
     <div class="section">
         <!-- Google Map Area Start -->
         <div class="google-map-area w-100" data-aos="fade-up" data-aos-duration="1000">
-            <iframe class="contact-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2136.986005919501!2d-73.9685579655238!3d40.75862446708152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258e4a1c884e5%3A0x24fe1071086b36d5!2sThe%20Atrium!5e0!3m2!1sen!2sbd!4v1585132512970!5m2!1sen!2sbd"></iframe>
+            <iframe class="contact-map" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Karolusstraat,%20Netherland+(Your%20Business%20Name)&amp;t=&amp;z=9&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
         </div>
         <!-- Google Map Area Start -->
     </div>

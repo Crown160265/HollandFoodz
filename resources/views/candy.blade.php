@@ -6,13 +6,13 @@
     <div class="slider-section slider-active overflow-hidden">
         <!-- Single Slider Start -->
         <div class="single-slider-02 animation-style-01" style="background-image: url(/assets/images/landing/6.jpg);">
-            <div class="container">
+            <div class="container position-top1">
 
                 <!-- Slider Content Start -->
                 <div class="slider-content-02 text-center mx-auto">
                     <h1 class="slider-content-02__title text-white">Candy which Spreading Love of Joy </h1>
                     <a class="slider-content-02__shape" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="94" fill="none" viewBox="0 0 28 94">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 94">
                             <path fill="currentColor" d="M17.272 93.047c-.635 1.27-2.7 1.27-3.336 0C8.533 83.195 3.607 73.184.747 62.379c-.318-1.589 1.43-3.178 2.86-2.224 3.178 2.224 5.88 4.926 8.263 8.104-.636-22.246-3.655-45.286 1.589-67.214.318-1.59 3.019-1.271 2.86.318-2.86 22.722-.635 45.286-.318 68.008 2.701-2.383 5.402-4.767 7.945-7.15 1.112-1.113 3.496-.477 3.337 1.43-1.271 10.487-4.767 20.338-10.01 29.396zm-1.747-18.91c-.954 1.43-3.655 1.113-3.655-1.112v-.317c-1.907-1.907-3.655-3.814-5.72-5.72 2.542 7.309 5.72 14.141 9.374 20.974 3.178-6.197 5.562-12.553 6.833-19.386-1.748 1.59-3.655 3.178-5.403 4.926-.317.636-.953.795-1.43.636z"></path>
                         </svg>
                     </a>
@@ -51,7 +51,7 @@
                             </div>
                         </div>
                         <!-- Features Card Wrapper End -->
-
+                         
                     </div>
                     <div class="col-md-4">
 
@@ -117,7 +117,6 @@
                                     @foreach ($chunk as $product)
                                         @php
                                             $productName = $product->name;
-                                            $productPrice = $product->price;
                                             $productCategory = $product->category;
                                             $imageUrl = '/assets/images/' . strtolower(str_replace(" ", "-", $productCategory)) . '/' . $productName . '.jpg'; 
                                         @endphp
@@ -129,19 +128,12 @@
                                                 <a href="/product/{{$productName}}">
                                                     <img src={{$imageUrl}}  style="width:70%; height:auto; aspect-ratio:1/1;" alt="Product">
                                                 </a>
-                                                <ul class="product-item__meta meta-middle">
-                                                    <li class="product-item__meta-action"><a class="labtn-icon-quickview" href="#/" data-bs-tooltip="tooltip" data-bs-placement="top" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleProductModal"></a></li>
-                                                    <li class="product-item__meta-action"><a class="labtn-icon-cart" href="#/" data-bs-tooltip="tooltip" data-bs-placement="top" title="Select options" data-bs-toggle="modal" data-bs-target="#modalCart"></a></li>
-                                                    <li class="product-item__meta-action"><a class="labtn-icon-wishlist" href="#/" data-bs-tooltip="tooltip" data-bs-placement="top" title="Add to wishlist" data-bs-toggle="modal" data-bs-target="#modalWishlist"></a></li>
-                                                    <li class="product-item__meta-action"><a class="labtn-icon-compare" href="#/" data-bs-tooltip="tooltip" data-bs-placement="top" title="Add to compare" data-bs-toggle="modal" data-bs-target="#modalCompare"></a></li>
-                                                </ul>
                                             </div>
                                             <div class="product-item__content px-0 pt-9 pb-4 px-0">
                                                 <h5 class="product-item__title fs-5"><a href="/product/{{$productName}}">{{$productName}}</a></h5>
                                                 <div class="product-item__rating">
                                                     <div class="product-item__star-rating" style="width: 100%;"></div>
                                                 </div>
-                                                <span class="product-item__price fs-4">${{$productPrice}}</span>
                                             </div>
                                         </div>
                                     <!-- Product Item End -->

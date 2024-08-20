@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Models\Product;
 use App\Models\SalesPoint;
 use App\Models\Chief;
@@ -16,13 +17,13 @@ class ProductController extends Controller {
         return view('index', ['candyProducts'=>$candyProducts, 'diaryProducts'=>$diaryProducts]);
     }
 
-    public function about() {
-        $products = Product::all();
-        $chiefs = Chief::all();
-        $reviews = CustomerReview::all();
+    // public function about() {
+    //     $products = Product::all();
+    //     $chiefs = Chief::all();
+    //     $reviews = CustomerReview::all();
 
-        return view('about', ['products'=>$products, 'chiefs'=>$chiefs, 'reviews'=>$reviews]);
-    }
+    //     return view('about', ['products'=>$products, 'chiefs'=>$chiefs, 'reviews'=>$reviews]);
+    // }
 
     public function salespoints() {
         $salespoints = SalesPoint::all();  
@@ -32,7 +33,8 @@ class ProductController extends Controller {
     public function salespoint($title) {
         $titleUC = ucwords(str_replace("-", " ", $title));
         $salespoint = SalesPoint::where('title', $titleUC)->first();
-        return view('salespoint-detail', ['salespoint'=>$salespoint]);
+        $salespoints = SalesPoint::all();
+        return view('salespoint-detail', ['salespoint'=>$salespoint, 'salespoints'=>$salespoints]);
     }
 
     public function contact() {
@@ -63,6 +65,7 @@ class ProductController extends Controller {
     public function detail($productName) {
         $singleProduct = Product::where('name', $productName)->first();
         $type = $singleProduct->type;
+        $id = $singleProduct->id;
         if($type == 'diary'){
             $relatedProducts = Product::where('type', $type)->get();
         }
@@ -70,37 +73,35 @@ class ProductController extends Controller {
             $category = $singleProduct->category;
             $relatedProducts = Product::where('category', $category)->get();
         }
-        return view('single-product', ['type'=>$type,'singleProduct'=>$singleProduct, 'relatedProducts'=>$relatedProducts]);
-        // $locationIds = empty(request()->location_ids) ? [] : request()->location_ids;
-        // $sizeIds = empty(request()->size_ids) ? [] : request()->size_ids;
-        // $keyword = empty(request()->keyword) ? '' : request()->keyword;
+        $customerReviews = CustomerReview::where('productId', $id)->where('productType', $type)->get();
+        return view('single-product', ['type'=>$type,'singleProduct'=>$singleProduct, 'relatedProducts'=>$relatedProducts, 'customerReviews'=>$customerReviews]);
+    }
 
-        // $locations = Location::withCount(['products' => function($q) {
-        //     $q->where('products.is_active', true)
-        //         ->where('products.is_verified', true);
-        // }])->where('is_active', TRUE)
-        // ->orderBy('name', 'ASC')
-        // ->having('products_count', '>', 0)->get();
-        // $sizes = Size::withCount(['products' => function($q) {
-        //     $q->where('is_active', true)
-        //         ->where('is_verified', true);
-        // }])->where('is_active', TRUE)
-        // ->orderBy('name', 'ASC')
-        // ->having('products_count', '>', 0)->get();
+    public function store(Request $request, Response $response) {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|max:255',
+            'productId' => 'required|integer',
+            'productType' => 'required|string|max:255',
+            'score' => 'required|numeric',
+            'comment' => 'required|string|max:10000',
+        ]);
 
-        // $products = Product::where('is_active', true)->where('is_verified', true);
-        // if (!empty($locationIds)) {
-        //     $products = $products->whereIn('location_id', $locationIds);
-        // }
+        // dd($response);
 
-        // if (!empty($sizeIds)) {
-        //     $products = $products->whereIn('size_id', $sizeIds);
-        // }
-
-        // if (!empty($keyword)) {
-        //     $products = $products->where('name', 'like', '%'.$keyword.'%');
-        // }
-
-        // $products = $products->orderBy('name', 'ASC')->orderBy('pack_size', 'asc')->get();
+        try {
+            CustomerReview::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'productId' => $request->productId,
+                'productType' => $request->productType,
+                'score' => $request->score,
+                'comment' => $request->comment
+            ]);
+            return redirect()->back()->with('success', 'Review submitted successfully!');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => 'Failed to submit review: ' . $e->getMessage()]);
+        }
+        
     }
 }

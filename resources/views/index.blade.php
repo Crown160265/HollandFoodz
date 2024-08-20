@@ -1,50 +1,29 @@
 @extends('layouts.main')
 
 @section('main')
-
-
-    <!-- Slider Section Strat -->
+    
     <div class="slider-section slider-active overflow-hidden">
         <div class="swiper">
             <div class="swiper-wrapper">
                 <!-- Single Slider Start -->
                 <div class="swiper-slide single-slider-04 animation-style-04" style="background-image: url(assets/images/bg/haribo2_rrrr.png);">
-                    <div class="container">
-
-                        <!-- Slider Content Start -->
+                    <div class="container position-top">
                         <div class="slider-content-04">
-                            <h1 class="slider-content-04__title text-white">Holland FOODZ</h1>
+                            <div class="slider-content-04__title text-white">Holland FOODZ</div>
                         </div>
-                        <!-- Slider Content Start -->
-
-                        <!-- Slider Images Start -->
-                        <div class="slider-images-02">
-                            <!-- <img class="slider-images-02__shape-01" src="assets/images/landing/range-1.png" alt="Shape"> -->
-                            <div class="slider-images-02__image mx-auto">
-                                <!-- <img src="assets/images/landing/range-1.png" alt="Slider Product"> -->
-                            </div>
-                        </div>
-                        <!-- Slider Images Start -->
                     </div>
                 </div>
                 <!-- Single Slider End -->
 
                 <!-- Single Slider Start -->
                 <div class="swiper-slide single-slider-04 animation-style-04" style="background-image: url(assets/images/bg/haribo3_rr.png);">
-                    <div class="container">
-
-                        <!-- Slider Content Start -->
-                        <div class="slider-content-04">
+                    <div class="container position-top">
+                        <div class="slider-content-04 position">
                             <h1 class="slider-content-04__title text-white"> Altijd lekker samen genieten</h1>
-                            <a class="slider-content-07__btn btn slider-btn-02 rounded-pill" href="{{url('/about')}}">About us</a>
                         </div>
-                        <!-- Slider Content Start -->
-
-
                     </div>
                 </div>
                 <!-- Single Slider End -->
-
             </div>
             <div class="slider-arrow slider-arrow-four">
                 <div class="swiper-button-next"><i class="lastudioicon-left-arrow"></i></div>
@@ -52,9 +31,7 @@
             </div>
         </div>
     </div>
-    <!-- Slider Section End -->
     
-
     <!-- Best Service Section Strat -->
     <div class="best-service section-padding-03">
 
@@ -366,17 +343,6 @@
                                             <img src="{{$candyProductImageUrl}}" style="height:auto; aspect-ratio:1/1;" alt="Product" />
                                         </a>
                                     </div>
-                                    <ul class="product-item-style-01__meta">
-                                        <li class="product-item-style-01__meta-action">
-                                            <a class="shadow-1 labtn-icon-quickview" href="#/" data-bs-tooltip="tooltip" data-bs-placement="top" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleProductModal"></a>
-                                        </li>
-                                        <li class="product-item-style-01__meta-action">
-                                            <a class="shadow-1 labtn-icon-wishlist" href="#/" data-bs-tooltip="tooltip" data-bs-placement="top" title="Add to wishlist" data-bs-toggle="modal" data-bs-target="#modalWishlist"></a>
-                                        </li>
-                                        <li class="product-item-style-01__meta-action">
-                                            <a class="shadow-1 labtn-icon-compare" href="#/" data-bs-tooltip="tooltip" data-bs-placement="top" title="Add to compare" data-bs-toggle="modal" data-bs-target="#modalCompare"></a>
-                                        </li>
-                                    </ul>
                                     <div class="product-item-style-01__content-wrapper d-flex justify-content-between align-items-center">
                                         <div class="product-item-style-01__content">
                                             <h5 class="product-item-style-01__title"><a href="{{$candyProductImageUrl}}">{{$candyProductName}}</a></h5>
@@ -385,7 +351,6 @@
                                             </div>
                                         </div>
                                         <div class="product-item-style-01__cart">
-                                            <a href="#/" class="labtn-icon-cart" data-bs-tooltip="tooltip" data-bs-placement="top" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#modalCart"></a>
                                         </div>
                                     </div>
                                 </div>
@@ -421,7 +386,7 @@
             <img class="" src="{{asset('assets/images/gadget/candy.png')}}" alt="Shape-Image">
         </div>
         <div class="testimonial-five_shape02">
-            <img class="rotate-30-left" src="{{asset('assets/images/gadget/candy1.png')}}" alt="Shape-Image">
+            <img src="{{asset('assets/images/gadget/candy1.png')}}" alt="Shape-Image">
         </div>
     </div>
     <!-- Testimonial Five Section End -->
@@ -447,17 +412,6 @@
                                             <img src="{{$diaryProductImageUrl}}" style="height:auto; aspect-ratio:1/1;" alt="Product">
                                         </a>
                                     </div>
-                                    <ul class="product-item-style-01__meta">
-                                        <li class="product-item-style-01__meta-action">
-                                            <a class="shadow-1 labtn-icon-quickview" href="#/" data-bs-tooltip="tooltip" data-bs-placement="top" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleProductModal"></a>
-                                        </li>
-                                        <li class="product-item-style-01__meta-action">
-                                            <a class="shadow-1 labtn-icon-wishlist" href="#/" data-bs-tooltip="tooltip" data-bs-placement="top" title="Add to wishlist" data-bs-toggle="modal" data-bs-target="#modalWishlist"></a>
-                                        </li>
-                                        <li class="product-item-style-01__meta-action">
-                                            <a class="shadow-1 labtn-icon-compare" href="#/" data-bs-tooltip="tooltip" data-bs-placement="top" title="Add to compare" data-bs-toggle="modal" data-bs-target="#modalCompare"></a>
-                                        </li>
-                                    </ul>
                                     <div class="product-item-style-01__content-wrapper d-flex justify-content-between align-items-center">
                                         <div class="product-item-style-01__content">
                                             <h5 class="product-item-style-01__title"><a href="{{$diaryProductImageUrl}}">{{$diaryProductName}}</a></h5>
@@ -466,7 +420,6 @@
                                             </div>
                                         </div>
                                         <div class="product-item-style-01__cart">
-                                            <a href="#/" class="labtn-icon-cart" data-bs-tooltip="tooltip" data-bs-placement="top" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#modalCart"></a>
                                         </div>
                                     </div>
                                 </div>
@@ -555,7 +508,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="event_image">
-                        <img src="assets/images/bg/video6.jpg" style="width:100%; height:600px;" alt="Event-Image">
+                        <img src="assets/images/bg/salespoint1.jpg" style="width:100%;" alt="Event-Image">
                     </div>
                 </div>
                 <div class="col-md-6">

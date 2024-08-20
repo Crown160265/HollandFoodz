@@ -3,9 +3,7 @@
 
 @section('main')
     <!-- Breadcrumb Section Start -->
-    <div class="breadcrumb background-red" style="height: 25vh;">
-    </div>
-   
+    
     <div class="slider-section slider-active overflow-hidden">
         <div class="swiper">
             <div class="swiper-wrapper">
@@ -13,12 +11,12 @@
                  @php
                     $candyImageUrl = '/assets/images/bg/' . $category . '.png';
                  @endphp
-                <div class="swiper-slide single-slider-04 animation-style-04" style="height:75vh; background-image: url({{ $candyImageUrl }});">
-                    <div class="container">
+                <div class="swiper-slide single-slider-04 animation-style-04" style="background-image: url({{ $candyImageUrl }});">
+                    <div class="container position-top">
                         <!-- Slider Content Start -->
                         <div class="slider-content-04">
                             <h1 class="slider-content-04__title text-white">{{str_replace("-", " ", $category)}}</h1>
-                            <a class="slider-content-07__btn btn slider-btn-02 rounded-pill" href="{{url('/')}}"><span>Home</span></a>
+                            <!-- <a class="slider-content-07__btn btn slider-btn-02 rounded-pill" href="{{url('/')}}"><span>Home</span></a> -->
                             <a class="slider-content-07__btn btn slider-btn-02 rounded-pill" href="{{url('/collection/candy')}}"><span>Candy</span></a>
                         </div>
                         <!-- Slider Content Start -->
@@ -61,20 +59,6 @@
                                     @endif
                                     <div class="product-item__image border w-100">
                                         <a href="/product/{{$productName}}"><img width="450" height="450" src={{$imageUrl}} alt="Product"></a>
-                                        <ul class="product-item__meta">
-                                            <li class="product-item__meta-action">
-                                                <a class="shadow-1 labtn-icon-quickview" href="#/" data-bs-tooltip="tooltip" data-bs-placement="top" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleProductModal"></a>
-                                            </li>
-                                            <li class="product-item__meta-action">
-                                                <a class="shadow-1 labtn-icon-cart" href="#/" data-bs-tooltip="tooltip" data-bs-placement="top" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#modalCart"></a>
-                                            </li>
-                                            <li class="product-item__meta-action">
-                                                <a class="shadow-1 labtn-icon-wishlist" href="#/" data-bs-tooltip="tooltip" data-bs-placement="top" title="Add to wishlist" data-bs-toggle="modal" data-bs-target="#modalWishlist"></a>
-                                            </li>
-                                            <li class="product-item__meta-action">
-                                                <a class="shadow-1 labtn-icon-compare" href="#/" data-bs-tooltip="tooltip" data-bs-placement="top" title="Add to compare" data-bs-toggle="modal" data-bs-target="#modalCompare"></a>
-                                            </li>
-                                        </ul>
                                     </div>
                                     <div class="product-item__content pt-5">
                                         <h5 class="product-item__title"><a href="/product/{{$productName}}">{{$productName}}</a></h5>
@@ -89,7 +73,7 @@
                     </div>
                 </div>
             </div>
-</div>
+    </div>
         </div>
     <!-- Product Section End -->
     </div>
